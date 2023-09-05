@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog 😍</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .header {
+      background-color: #35495e;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+  
+    /* Existing CSS for your menu bar */
+    .menu-bar {
+        background-color: #333;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .menu-item {
+        color: white;
+    }
+
+    /* New styles to make links green */
+    .menu-item a {
+        color: #2ecc71; /* Green color */
+        text-decoration: none; /* Remove underlines from links */
+    }
+
+    /* Style links on hover */
+    .menu-item a:hover {
+        text-decoration: underline; /* Add underlines on hover */
+    }
+.auth-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      color: #333; /* Default text color */
+    }
+    .auth-form label,
+    .auth-form input,
+    .auth-form textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .auth-form button {
+      background-color: #35495e;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .auth-form button.secondary {
+      background-color: #2ecc71; /* Green color */
+    }
+    .auth-form button:hover {
+      background-color: #2c3a4b;
+    }
+    .dark-bg {
+      background-color: #333;
+      color: white;
+    }
+    .dark-bg .menu-bar,
+    .dark-bg .footer {
+      background-color: #333;
+      color: white;
+    }
+    .dark-bg .menu-item,
+    .dark-bg .toggle-button {
+      color: white;
+      font-weight: bold; /* Added for bold text */
+    }
+    .dark-bg .auth-container {
+      background-color: #222; /* Dark background for container */
+      color: white;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* Lighten shadow */
+    }
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .toggle-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 14px;
+      color: #35495e;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 0 10px;
+    }
+    .toggle-button:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to My Blog 🤩</h1>
+  </div>
+  <div class="menu-bar">
+    <div class="menu-item" ><a href="/" >Home</a></div>
+    <div class="menu-item"><a href="/Posts">Posts</a></div>
+    <div class="menu-item"><a href="/About">About</a></div>
+    <div class="menu-item"><a href="/Contact">Contact</a></div>
+  </div>
+  <div class="toggle-buttons">
+    <button class="toggle-button" id="dark-bg-button">Dark</button>
+    <button class="toggle-button" id="white-bg-button">White</button>
+  </div>
+  <div class="auth-container" id="auth-container">
+    <h2>Create a New Blog Post</h2>
+    <form class="auth-form" action="/add" method="post">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title">
+      <label for="post">Post:</label>
+      <textarea id="post" name="post" rows="6"></textarea>
+      <button type="submit" class="secondary">Post</button>
+     
+    </form>
+  </div>
+  <div class="footer">
+    &copy; 2023 My Blog developed by Touseef Hussain 😍
+  </div>
+  <script>
+    const darkBgButton = document.getElementById('dark-bg-button');
+    const whiteBgButton = document.getElementById('white-bg-button');
+    const authContainer = document.getElementById('auth-container');
+
+    darkBgButton.addEventListener('click', () => {
+      authContainer.classList.add('dark-bg');
+    });
+
+    whiteBgButton.addEventListener('click', () => {
+      authContainer.classList.remove('dark-bg');
+    });
+  </script>
+  <script>
+  const form = document.querySelector('.auth-form');
+
+  form.addEventListener('submit', (event) => {
+    const titleInput = document.getElementById('title');
+    const postInput = document.getElementById('post');
+
+    if (titleInput.value.trim() === '' || postInput.value.trim() === '') {
+      event.preventDefault(); // Prevent form submission
+      alert('Please fill in both the title and post fields.');
+    }
+  });
+</script>
+
+</body>
+</html>
